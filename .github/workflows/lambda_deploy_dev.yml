@@ -1,0 +1,24 @@
+name: Lambda Deploy
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: src
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: zip nhl_standings_api.zip main.py
+    - uses: stcalica/update-lambda@0.0.2
+      with:
+        package: src/nhl_standings_api.zip
+        function-name: nhl-standings-api-dev
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}
+        AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
