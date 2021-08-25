@@ -9,9 +9,9 @@ openapi_prefix = f"/{stage}" if stage else "/"
 app = FastAPI(title="NHL Standings API", openapi_prefix=openapi_prefix)
 
 
-@app.get("/")
-async def index():
-    return {"message": "NHL standings API. See /docs or /redoc"}
+# @app.get("/")
+# async def index():
+#    return {"message": "NHL standings API. See /docs or /redoc"}
 
 
 @app.get("/standings/division")
