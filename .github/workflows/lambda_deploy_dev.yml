@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: zip nhl_standings_api.zip src/* -r
+    - run: zip nhl_standings_api.zip * -r
     - uses: stcalica/update-lambda@0.0.2
       with:
         package: src/nhl_standings_api.zip
