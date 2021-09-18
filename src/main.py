@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
-from src.api.api_v1.api import router as api_router
+from api.api_v1.api import router as api_router
 
 
 app = FastAPI(title="Kippura NHL Standings API", root_path="/dev")
