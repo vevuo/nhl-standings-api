@@ -3,7 +3,7 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.get("/teams")
+@router.get("/")
 async def list_all_teams():
     return [
         {"team_name": "Montreal Canadiens"}

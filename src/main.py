@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from mangum import Mangum
 
@@ -13,5 +12,5 @@ async def root():
     return {"message": "Kippurta NHL standings API. See /docs or /redoc."}
 
 
-app.include_router(api_router, prefix="api/v1")
+app.include_router(api_router, prefix="/api/v1")
 handler = Mangum(app)
